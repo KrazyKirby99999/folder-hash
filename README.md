@@ -21,3 +21,12 @@ Display set of possible algorithms
 import hashlib
 print(hashlib.algorithms_available)
 ```
+# TODO
+
+X Add folder hash implementation
+
+X Add hash algorithm choice
+
+O Add cli functionality
+
+O Add option to exclude file or subfolders
