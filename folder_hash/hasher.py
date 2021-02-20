@@ -23,8 +23,8 @@ class Hasher:
                     while len(file_data) > 0:
                         hasher.update(file_data)
                         file_data = f.read(BUF_SIZE)
-            for dir in dirs:
-                hasher.update(dir.encode("utf-8"))
+            for dir_to_hash in dirs:
+                hasher.update(dir_to_hash.encode("utf-8"))
         return hasher.hexdigest()
 
     def set_hash_algo(self):
