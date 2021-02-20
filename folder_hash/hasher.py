@@ -18,9 +18,11 @@ class Hasher:
 
         for root, dirs, files in os.walk(self.folder_path):
             for file in files:
-                with open(os.path.join(root, file), "rb", BUF_SIZE) as f:
-                    file_data = f.read()
-                    hasher.update(file_data)
+                with open(os.path.join(root, file), "rb") as f:
+                    file_data = f.read(BUF_SIZE)
+                    while len(file_data) > 0:
+                        hasher.update(file_data)
+                        file_data = f.read(BUF_SIZE)
             for dir in dirs:
                 hasher.update(dir.encode("utf-8"))
         return hasher.hexdigest()
